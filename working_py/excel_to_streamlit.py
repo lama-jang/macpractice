@@ -8,7 +8,7 @@ st.title("안전실태조사 결과 분석(test)")
 uploaded_file = st.file_uploader("Choose a XLSX file", type="xlsx")
 
 if uploaded_file:
-    df = pd.read_excel(uploaded_file)
+    df = pd.read_excel(uploaded_file, engine='openpyxl')
     df.dropna(how='all', inplace = True)
     
     st.dataframe(df)
@@ -32,7 +32,7 @@ if uploaded_file:
         st.text("{}:".format(g_list[i]))
 
     # piviottavle 생성(html파일 별도 생성)
-    # t = pivot_ui(df)
+    t = pivot_ui(df)
 
-    # with open(t.src, encoding='utf-8') as t:
-    #     components.html(t.read(), width=1000, height=1000, scrolling=True)
+    with open(t.src, encoding='utf-8') as t:
+        components.html(t.read(), width=1000, height=1000, scrolling=True)
