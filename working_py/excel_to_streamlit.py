@@ -14,7 +14,7 @@ if uploaded_file:
     st.dataframe(df)
 
     number_of_rows = len(df.index)
-    st.subheader("모델수 : {}".format(number_of_rows))
+    st.subheader("모델수 : {}".format(number_of_rows)
 
     option = st.sidebar.selectbox(
     'Which data do you want?', list(df.columns.values)
