@@ -1,0 +1,13 @@
+{% if output %}
+
+<form method="POST">
+<select name="traveler">
+{% for name in output %}
+    <option value="{{ name.id }}">{{ name.name }}</option>
+{% endfor %}    
+</select>
+</form>
+</ul>
+{% else %}
+<p>No travelers are available</p>
+{% endif %}
