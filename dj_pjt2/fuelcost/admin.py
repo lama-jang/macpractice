@@ -1,5 +1,6 @@
 from django.contrib import admin
-from .models import fuel_info
+from .models import Traveler, FuelInfo
 
-admin.site.register(fuel_info)
+admin.site.register(Traveler)
+admin.site.register(FuelInfo)
 
