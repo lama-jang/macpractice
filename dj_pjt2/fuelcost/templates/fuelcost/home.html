@@ -1,24 +1,30 @@
-<h1>출장정보 입력</h1>
-<br>
-<body>
-    <p1>출장자를 선택하세요.</p1>
+{% extends "base_generic.html" %}
 
-    {% if traveler_name %}
+{% block content %}
 
-    <form method="POST">
-    {% csrf_token %}
-    <select name="traveler">
-    {% for name in traveler_name %}
-        <option value="{{ name.id }}">{{ name.name }}</option>
-    {% endfor %}    
-    </select>
-    <input type="submit" value="Select" />
-    </form>
-    </ul>
-    {% else %}
-    <p>No travelers are available</p>
-    {% endif %}
+    <h1>출장정보 입력</h1>
+    <br>
+    <body>
+        <p1>출장자를 선택하세요.</p1>
 
-    <p2>출장일자를 선택하세요.</p2>
+        {% if traveler_name %}
 
-</body>
+        <form method="POST">
+        {% csrf_token %}
+        <select name="traveler">
+        {% for name in traveler_name %}
+            <option value="{{ name.id }}">{{ name.name }}</option>
+        {% endfor %}    
+        </select>
+        <input type="submit" value="Select" />
+        </form>
+        </ul>
+        {% else %}
+        <p>No travelers are available</p>
+        {% endif %}
+
+        <p2>출장일자를 선택하세요.</p2>
+
+    </body>
+
+{% endblock %}
