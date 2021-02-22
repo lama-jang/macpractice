@@ -4,6 +4,6 @@ from . import views
 
 app_name = 'fuelcost'
 urlpatterns = [
-    path('', views.home, name='home'),
-    path('<int:traveler_id>/', views.calfuel, name='calfuel'),
+    path('', views.TravelerListView.as_view(), name='home'),
+    path('<int:pk>/', views.TravelerDetailVeiw.as_view(), name='calfuel'),
 ]
