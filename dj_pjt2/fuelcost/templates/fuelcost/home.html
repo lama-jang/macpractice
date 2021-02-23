@@ -7,12 +7,14 @@
     <body>
         <p1>출장자를 선택하세요.</p1>
 
-        {% if object_list %}
+        {{ travelers }}
 
-        <form method="POST" action="{% url 'fuelcost:calfuel' traveler.id %}">
+        {% if travelers %}
+
+        <form method="POST" action="{% url 'fuelcost:calfuel' pk=traveler.pk %}">
         {% csrf_token %}
         <select name="traveler">
-        {% for traveler in object_list %}
+        {% for traveler in travelers %}
             <option value="{{ traveler.id }}">{{ traveler.name }}</option>
         {% endfor %}    
         </select>
