@@ -12,14 +12,14 @@
         {% if travelers %}
 
         <form method="POST" action="{% url 'fuelcost:calfuel' pk=traveler.pk %}">
-        {% csrf_token %}
-        <select name="traveler">
-        {% for traveler in travelers %}
-            <option value="{{ traveler.id }}">{{ traveler.name }}</option>
-        {% endfor %}    
-        </select>
+            {% csrf_token %}
+            <select name="traveler">
+                {% for traveler in travelers %}
+                    <option value="{{ traveler.id }}">{{ traveler.name }}</option>
+                {% endfor %}    
+            </select>
         
-        <input type="submit" value="Select" />
+            <input type="submit" value="Select" />
         </form>
         
         {% else %}
