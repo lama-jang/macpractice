@@ -8,7 +8,7 @@
         <p1>출장자를 선택하세요.</p1>
 
         {% if travelers %}
-        <form method="POST">
+        <!-- <form method="POST">
         {% csrf_token %}
             <select>
                 {% for traveler in travelers %}
@@ -16,10 +16,10 @@
                 {% endfor %}
             </select>
             <input type="submit" value="Select" />
-        </form>
+        </form> -->
         <ul>
             {% for traveler in travelers %}
-                <li><a href="{% url 'fuelcost:calfuel' traveler.pk %>{{ traveler.name }}</li>
+                <li><a href="{% url 'fuelcost:calfuel' traveler.id %}">{{ traveler.name }}</a></li>
             {% endfor %}
         </ul>
         
