@@ -9,7 +9,7 @@
 
         {% if object_list %}
 
-        <form method="POST" action="{% url 'fuelcost:calfuel' traveler.id %}">
+        <form method="POST" action="{% url 'fuelcost:calfuel' name.id %}">
         {% csrf_token %}
         <select name="traveler">
         {% for traveler in object_list %}
