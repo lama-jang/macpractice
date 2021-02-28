@@ -6,27 +6,35 @@
     <br>
     <body>
         <p1>출장자를 선택하세요.</p1>
-
-        {% if object_list %}
-
-        <form method="POST" action="{% url 'fuelcost:calfuel' name.id %}">
         {% csrf_token %}
-        <select name="traveler">
-        {% for traveler in object_list %}
-            <option value="{{ traveler.id }}">{{ traveler.name }}</option>
-        {% endfor %}    
-        </select>
-        
-        <input type="submit" value="Select" />
+            <select>
+                {% for traveler in travelers %}
+                    <option value="{{ traveler.id }}">{{ traveler.name }}</option>
+                {% endfor %}
+            </select>
+            <input type="submit" value="Select" />
         </form>
+
+        <ul>
+            {% for traveler in travelers %}
+                <li><a href="{% url 'fuelcost:calfuel' traveler.id %}">{{ traveler.name }}</a></li>
+            {% endfor %}
+        </ul>
         
         {% else %}
         <p>No travelers are available</p>
         
         {% endif %}
 
-        <p2>출장일자를 선택하세요.</p2>
+        <p2>출장일자를 선택하세요.</p2> -->
+
+
+        <form action="" class=FuelInfoForm method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-default">Save</button>
+        </form>
+        
 
     </body>
-
 {% endblock %}
