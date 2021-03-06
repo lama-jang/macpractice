@@ -9,3 +9,4 @@ class FuelInfoForm(forms.ModelForm):
     traveler_name = forms.ModelChoiceField(queryset=FuelInfo.objects.all().order_by('name'))
     class Meta:
         model = FuelInfo
+        fields = ('name',)
