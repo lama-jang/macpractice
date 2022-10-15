@@ -29,3 +29,33 @@ zeros_tensor = torch.zeros(shape)
 print(f"Random Tensor: \n {rand_tensor} \n")
 print(f"Ones Tensor: \n {ones_tensor} \n")
 print(f"Zeros Tensor: \n {zeros_tensor} \n")
+
+# 텐서의 속성 확인
+tensor = torch.rand(3,4)
+
+print(f"Shape of Tensor: {tensor.shape}")
+print(f"Datatype of Tensor: {tensor.dtype}")
+print(f"Device tensor is sotred on: {tensor.device}")
+
+# 텐서의 연산
+# GPU가 존재하면 텐서를 이동
+if torch.cuda.is_available():
+    tensor = tensor.to('cuda')
+
+# NumPy식의 표준 인덱싱과 슬라이싱:
+tensor = torch.ones(4,4)
+print('First row: ',tensor[0])
+print('First column: ',tensor[:,0])
+print('Last column: ', tensor[...,-1])
+tensor[:,1] = 0
+print(tensor)
+
+t1 = torch.cat([tensor, tensor, tensor], dim=1)
+print(t1)
+
+ # 두 텐서 간의 행렬 곱(matrix multiplication)을 계산합니다. y1, y2, y3은 모두 같은 값을 갖습니다.
+ y1 = tensor @ tensor.T
+ y2 = tensor.matmul(tensor.T)
+
+ y3 = torch.rand_like(tensor)
+ torch.matmul(tensor, tensor.T, out=y3)

@@ -10,8 +10,8 @@ st.sidebar.header('Menu')
 
 name = st.sidebar.selectbox('코인 선택', ['BTC', 'ETH', 'USDT'])
 
-start_date = st.sidebar.date_input('Start date', datetime(2021, 1, 1))
-end_date = st.sidebar.date_input('End date', datetime(2021, 1, 7))
+start_date = st.sidebar.date_input('Start date', datetime(2022, 1, 1))
+end_date = st.sidebar.date_input('End date', datetime(2022, 10, 7))
 
 # https://coinmarketcap.com
 scraper = CmcScraper(name, start_date.strftime('%d-%m-%Y'), end_date.strftime('%d-%m-%Y')) # '%d-%m-%Y'
